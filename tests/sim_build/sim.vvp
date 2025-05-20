@@ -8,22 +8,37 @@
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
 :vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
-S_0x56512627e510 .scope package, "$unit" "$unit" 2 1;
+S_0x564684fb8800 .scope package, "$unit" "$unit" 2 1;
  .timescale -9 -12;
-S_0x56512627e6a0 .scope module, "dut" "dut" 3 1;
+S_0x564684fb8990 .scope module, "dut_test" "dut_test" 3 1;
  .timescale -9 -12;
     .port_info 0 /INPUT 1 "a";
     .port_info 1 /INPUT 1 "b";
     .port_info 2 /OUTPUT 1 "y";
-o0x7f87ea22c018 .functor BUFZ 1, C4<z>; HiZ drive
-o0x7f87ea22c048 .functor BUFZ 1, C4<z>; HiZ drive
-L_0x5651262c5170 .functor XOR 1, o0x7f87ea22c018, o0x7f87ea22c048, C4<0>, C4<0>;
-v0x56512628fd50_0 .net "a", 0 0, o0x7f87ea22c018;  0 drivers
-v0x565126290430_0 .net "b", 0 0, o0x7f87ea22c048;  0 drivers
-v0x5651262c5050_0 .net "y", 0 0, L_0x5651262c5170;  1 drivers
+o0x7f06fe37e018 .functor BUFZ 1, C4<z>; HiZ drive
+v0x564684fc82e0_0 .net "a", 0 0, o0x7f06fe37e018;  0 drivers
+o0x7f06fe37e048 .functor BUFZ 1, C4<z>; HiZ drive
+v0x564684fc83b0_0 .net "b", 0 0, o0x7f06fe37e048;  0 drivers
+v0x564684fc8480_0 .net "y", 0 0, L_0x564684fc8580;  1 drivers
+S_0x564684f7f490 .scope module, "dut_test" "dut" 3 6, 4 1 0, S_0x564684fb8990;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+L_0x564684fc8580 .functor XOR 1, o0x7f06fe37e018, o0x7f06fe37e048, C4<0>, C4<0>;
+v0x564684f7f6c0_0 .net "a", 0 0, o0x7f06fe37e018;  alias, 0 drivers
+v0x564684fc8100_0 .net "b", 0 0, o0x7f06fe37e048;  alias, 0 drivers
+v0x564684fc81c0_0 .net "y", 0 0, L_0x564684fc8580;  alias, 1 drivers
+    .scope S_0x564684fb8990;
+T_0 ;
+    %vpi_call/w 3 12 "$dumpfile", "waves.vcd" {0 0 0};
+    %vpi_call/w 3 13 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_0;
 # The file index is used to find the file name in the following table.
-:file_names 4;
+:file_names 5;
     "N/A";
     "<interactive>";
     "-";
+    "/mnt/c/Users/kesir/Desktop/projects/setup-sureshwarkesiraju/tests/wrappers/dut_test.v";
     "/mnt/c/Users/kesir/Desktop/projects/setup-sureshwarkesiraju/tests/../hdl/dut.v";
